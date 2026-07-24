@@ -39,3 +39,9 @@ document.addEventListener('keydown', function(event) {
         closePlayer();
     }
 });
+
+// Bloqueia tentativas de abertura de novas janelas/abas na página principal
+window.open = function() {
+    console.warn("Pop-up bloqueado pelo sistema.");
+    return null;
+};
