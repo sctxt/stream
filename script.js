@@ -39,13 +39,3 @@ document.addEventListener('keydown', function(event) {
         closePlayer();
     }
 });
-
-// Detecta quando o usuário perde o foco da página (ex: ao abrir popup) e tenta recuperar
-window.addEventListener('blur', () => {
-    // Se o modal do vídeo estiver aberto, força o foco de volta para a sua página
-    if (modal.style.display === 'flex') {
-        setTimeout(() => {
-            window.focus();
-        }, 100);
-    }
-});
