@@ -40,8 +40,12 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Bloqueia tentativas de abertura de novas janelas/abas na página principal
-window.open = function() {
-    console.warn("Pop-up bloqueado pelo sistema.");
-    return null;
-};
+// Detecta quando o usuário perde o foco da página (ex: ao abrir popup) e tenta recuperar
+window.addEventListener('blur', () => {
+    // Se o modal do vídeo estiver aberto, força o foco de volta para a sua página
+    if (modal.style.display === 'flex') {
+        setTimeout(() => {
+            window.focus();
+        }, 100);
+    }
+});
