@@ -39,3 +39,26 @@ document.addEventListener('keydown', function(event) {
         closePlayer();
     }
 });
+
+// FUNÇÃO DE BUSCA/FILTRO EM TEMPO REAL
+function searchCards() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        // Pega o texto do título do card
+        const titleElement = card.querySelector('.card-title');
+        
+        if (titleElement) {
+            const titleText = titleElement.textContent || titleElement.innerText;
+            
+            // Verifica se o termo digitado está presente no título
+            if (titleText.toLowerCase().indexOf(filter) > -1) {
+                card.style.display = ""; // Mostra o card
+            } else {
+                card.style.display = "none"; // Esconde o card
+            }
+        }
+    });
+}

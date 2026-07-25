@@ -9,14 +9,21 @@
 <body>
 
     <!-- CABEÇALHO -->
-    <header>
-        <div class="logo">StreamFlix</div>
-        <nav>
-            <a href="index.html" style="color: #fff; font-weight: bold;">Início</a>
-            <a href="filmes.html">Filmes</a>
-            <a href="#">Séries</a>
-        </nav>
-    </header>
+<!-- DENTRO DO HEADER OU LOGO ABAIXO DA NAVBAR -->
+<header>
+    <div class="logo">StreamFlix</div>
+    
+    <!-- CAMPO DE PESQUISA -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Pesquisar filme ou série..." onkeyup="searchCards()">
+    </div>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="filmes.html">Filmes</a>
+        <a href="series.html">Séries</a>
+    </nav>
+</header>
 
     <!-- BANNER PRINCIPAL -->
     <section class="hero">

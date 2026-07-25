@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Séries</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO / NAVBAR -->
+    <header>
+        <div class="logo">StreamFlix</div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="filmes.html">Filmes</a>
+            <a href="series.html" style="color: #fff; font-weight: bold;">Séries</a>
+        </nav>
+    </header>
+
+    <!-- BANNER DE DESTAQUE DE SÉRIES -->
+    <section class="hero" style="background-image: linear-gradient(to top, #141414, transparent), linear-gradient(to right, rgba(0,0,0,0.8), transparent 60%), url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=1200');">
+        <div class="hero-content">
+            <h1 class="hero-title">Séries em Alta</h1>
+            <p class="hero-desc">Acompanhe as melhores temporadas e episódios das suas séries favoritas direto na sua tela.</p>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE SÉRIES -->
+    <section class="catalog">
+        <h2 class="section-title">Populares</h2>
+        <div class="cards-row">
+            
+            <!-- CARD 1: Exemplo de Série via SuperFlix API usando o ID do IMDb (iniciando com tt) -->
+            <!-- Na SuperFlix API, a rota de série usa: https://superflixapi.pro/serie/ID_DO_IMDB -->
+            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400');" onclick="openPlayer('https://superflixapi.pro/serie/tt0903747')">
+                <div class="card-info">
+                    <div class="card-title">Série Exemplo (IMDb)</div>
+                </div>
+            </div>
+
+            <!-- CARD 2: Exemplo de Série usando ID numérico do TMDB -->
+            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=400');" onclick="openPlayer('https://superflixapi.pro/serie/1396')">
+                <div class="card-info">
+                    <div class="card-title">Série Exemplo (TMDB)</div>
+                </div>
+            </div>
+
+            <!-- CARD 3: Exemplo de arquivo local ou direto em MP4 -->
+            <div class="card" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=400');" onclick="openPlayer('videos/serie-ep1.mp4')">
+                <div class="card-info">
+                    <div class="card-title">Episódio Local (MP4)</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MODAL DO REPRODUTOR DE VÍDEO / IFRAME -->
+    <div class="modal" id="videoModal">
+        <span class="close-btn" onclick="closePlayer()">&times;</span>
+        
+        <!-- Player para arquivos .mp4 de vídeo direto -->
+        <video id="mainVideo" controls playsinline style="display: none;">
+            <source id="videoSource" src="" type="video/mp4">
+            Seu navegador não suporta este vídeo.
+        </video>
+
+        <!-- Player para Iframe da SuperFlix API -->
+        <iframe 
+            id="mainIframe" 
+            src="" 
+            frameborder="0" 
+            allowfullscreen 
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            style="display: none;">
+        </iframe>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
